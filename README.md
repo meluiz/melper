@@ -16,12 +16,14 @@ This module is a powerful resource that offers a comprehensive collection of reu
     - [toMs](#numtoms)
   - [string](#string)
     - [camelCase](#strcamelcase)
+    - [capitalCase](#strcapitalcase)
     - [dashCase](#strdashcase)
     - [dotCase](#strdotcase)
     - [noCase](#strnocase)
     - [pascalCase](#strpascalcase)
     - [sentenceCase](#strsentencecase)
     - [snakeCase](#strsnakecase)
+    - [titleCase](#strtitlecase)
     - [capialize (Under Construction)](#strcapitalize)
     - [encodeSymbols (Under Construction)](#strencodesymbols)
     - [escapeHTML (Under Construction)](#strescapehtml)
@@ -119,6 +121,16 @@ import { Str } from 'melper'
 Str.camelCase('hello-world') // helloWorld
 ```
 
+#### Str.capitalCase
+
+Convert a string to its `capitalCase` version.
+
+```ts
+import { Str } from 'melper'
+
+Str.capitalCase('hello-world') // Hello World
+```
+
 #### Str.dashCase
 
 Convert a string to its `dash-case` version. Optionally, you can also capitalize the first letter of each segment.
@@ -180,6 +192,16 @@ Convert a string to its `snake_case` version.
 import { Str } from 'melper'
 
 Str.snakeCase('helloWorld') // hello_world
+```
+
+#### Str.titleCase
+
+Convert a string to its `titleCase` version.
+
+```ts
+import { Str } from 'melper'
+
+Str.titleCase('Here is a fox') // Here Is a Fox
 ```
 
 ### Types
