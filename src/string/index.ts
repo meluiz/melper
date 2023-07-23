@@ -21,5 +21,4 @@ export * from './singularize'
 export * from './truncate'
 export * from './upper'
 
-export const cuid = createId
-export { createId, getConstants, init, isCuid }
+export const cuid = { createId, getConstants, init, isCuid }
