@@ -1,5 +1,12 @@
 # melper
 
+## 3.1.0
+
+### Minor Changes
+
+- f24d50b: feat(capital-case): add capitalCase function to convert input string to capitalized form
+- f24d50b: feat(title-case): add titleCase function to convert a string to title case
+
 ## 3.0.3
 
 ### Patch Changes
