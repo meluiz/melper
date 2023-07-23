@@ -1,5 +1,14 @@
 # melper
 
+## 2.0.1
+
+### Patch Changes
+
+- 6ddf9d3: test(escape-html.test.ts): add test case to ensure that Str.escapeHTML correctly escapes HTML characters
+- 6ddf9d3: test(dash-case.test.ts): add test case to generate a dash-case string with capitalize option
+
+  The test case was added to ensure that the `Str.dashCase` function is able to generate a dash-case string with capitalize option from the given input string. The input string "hello world" should be transformed into "Hello-World".
+
 ## 2.0.0
 
 ### Major Changes
