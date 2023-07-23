@@ -49,6 +49,9 @@ devDependencies:
   '@types/he':
     specifier: ^1.2.0
     version: 1.2.0
+  '@types/kind-of':
+    specifier: ^6.0.0
+    version: 6.0.0
   '@types/ms':
     specifier: ^0.7.31
     version: 0.7.31
@@ -907,6 +910,12 @@ packages:
 
   /@types/istanbul-lib-coverage@2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
+    dev: true
+
+  /@types/kind-of@6.0.0:
+    resolution: {integrity: sha512-OBts6MHCrq558cvND5nsWhoThwJaNu5lmGnSp3H0gFzQQc5QYM9p7HajIdS+2bgDquGX1qLZCPlyuYSxMDffAg==}
+    dependencies:
+      '@types/node': 20.4.3
     dev: true
 
   /@types/minimist@1.2.2:
