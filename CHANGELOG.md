@@ -1,5 +1,13 @@
 # melper
 
+## 3.0.3
+
+### Patch Changes
+
+- 05ac93b: chore(README.md): update npm package name and license badge URLs
+
+  The npm package name and license badge URLs in the README.md file were outdated. This commit updates the package name to "melper" and updates the npm and license badge URLs accordingly.
+
 ## 3.0.2
 
 ### Patch Changes
