@@ -1,5 +1,11 @@
 # melper
 
+## 3.1.2
+
+### Patch Changes
+
+- a7dc7a4: docs(README.md): fix typo in code example, change Typ.isDate to Typ.isClass for accurate description
+
 ## 3.1.1
 
 ### Patch Changes
