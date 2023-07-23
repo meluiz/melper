@@ -2,7 +2,7 @@
 
 > Explore a versatile assortment of helper utility functions
 
-[![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url] [![synk-image]][synk-url]
+[![typescript-image]][typescript-url] [![npm-image]][npm-url] [![license-image]][license-url]
 
 This module is a powerful resource that offers a comprehensive collection of reusable utilities, eliminating the need to rewrite redundant code across multiple packages. By leveraging these utilities, developers can significantly enhance their productivity and streamline their coding process. Say goodbye to the hassle of duplicating code, as this module provides an efficient and elegant solution for promoting code reusability and maintainability. Embrace the convenience and versatility of these utilities, and take your software development to the next level.
 
@@ -375,3 +375,10 @@ import { Typ } from 'melper'
 
 Typ.isNull(undefined) // true
 ```
+
+[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[typescript-url]: "typescript"
+[npm-image]: https://img.shields.io/npm/v/@poppinss/utils.svg?style=for-the-badge&logo=npm
+[npm-url]: https://npmjs.org/package/@poppinss/utils 'npm'
+[license-image]: https://img.shields.io/npm/l/@poppinss/utils?color=blueviolet&style=for-the-badge
+[license-url]: LICENSE.md 'license'
