@@ -77,7 +77,7 @@ const camelCase = Str.camelCase('Hello World') // helloWorld
 
 ### Number
 
-#### format
+#### Num.format
 
 Simple alias to
 
@@ -89,7 +89,7 @@ import { Num } from 'melper'
 Num.format(123456.789, 'de-DE', { style: 'currency', currency: 'EUR' }) // '123.456,79 €'
 ```
 
-#### toBytes
+#### Num.toBytes
 
 Convert human readable string to bytes. This method is the opposite of the `Str.prettyBytes` method.
 
@@ -99,7 +99,7 @@ import { Num } from 'melper'
 Num.toBytes('1KB') // 1024
 ```
 
-#### toMs
+#### Num.toMs
 
 Convert human readable string to milliseconds. This method is the opposite of the `Str.prettyMs` method.
 
