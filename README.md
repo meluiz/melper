@@ -269,7 +269,7 @@ Find if the given value is a class
 ```ts
 import { Typ } from 'melper'
 
-Typ.isDate(class A {}) // true
+Typ.isClass(class A {}) // true
 ```
 
 #### Typ.isDate
