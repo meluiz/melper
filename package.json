@@ -52,6 +52,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
+    "@types/bytes": "^3.1.1",
     "@types/he": "^1.2.0",
     "@types/ms": "^0.7.31",
     "@types/pluralize": "^0.0.30",
