@@ -1,1 +1,1 @@
-console.log('Welcome to melper!')
+export * as Str from './string'
