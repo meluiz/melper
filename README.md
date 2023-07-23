@@ -378,7 +378,7 @@ Typ.isNull(undefined) // true
 
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]: "typescript"
-[npm-image]: https://img.shields.io/npm/v/@poppinss/utils.svg?style=for-the-badge&logo=npm
-[npm-url]: https://npmjs.org/package/@poppinss/utils 'npm'
-[license-image]: https://img.shields.io/npm/l/@poppinss/utils?color=blueviolet&style=for-the-badge
+[npm-image]: https://img.shields.io/npm/v/melper.svg?style=for-the-badge&logo=npm
+[npm-url]: https://npmjs.org/package/melper 'npm'
+[license-image]: https://img.shields.io/npm/l/melper?color=blueviolet&style=for-the-badge
 [license-url]: LICENSE.md 'license'
