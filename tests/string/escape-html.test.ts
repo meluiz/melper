@@ -10,4 +10,12 @@ describe('Str.escapeHTML', () => {
 
     expect(escape).toBe(expected)
   })
+
+  it('Should be able to escape html ', () => {
+    const string = '<p>hello world ©</p>'
+    const expected = '&lt;p&gt;hello world &#xA9;&lt;/p&gt;'
+    const escape = Str.escapeHTML(string, { encodeSymbols: true })
+
+    expect(escape).toBe(expected)
+  })
 })
