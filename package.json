@@ -39,7 +39,8 @@
     "url": "https://github.com/meluiz/melper/issues"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
+    "watch": "tsup --watch",
     "format": "prettier --write .",
     "test": "vitest run",
     "test:watch": "vitest",
