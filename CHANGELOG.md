@@ -1,5 +1,11 @@
 # melper
 
+## 3.0.2
+
+### Patch Changes
+
+- 20564a8: chore(README.md): remove unnecessary synk badge docs(README.md): update description to emphasize code reusability and maintainability docs(README.md): remove unused import statement
+
 ## 3.0.1
 
 ### Patch Changes
