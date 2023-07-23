@@ -1,5 +1,11 @@
 # melper
 
+## 3.1.1
+
+### Patch Changes
+
+- 7aff92a: docs(README.md): fix incorrect method names in Number section
+
 ## 3.1.0
 
 ### Minor Changes
