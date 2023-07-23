@@ -1,5 +1,46 @@
 # melper
 
+## 3.0.0
+
+### Major Changes
+
+- b6a13bf: feat(types): add various utility functions for type checks
+
+  - Add `isFunction` utility function to check if a value is a function
+  - Add `isObject` function to check whether the input is an object
+  - Add `isClass` function to check if the input is a class
+  - Add `isError` function to check if the input is an error
+  - Add `isBuffer` function to check if the input is a Buffer
+  - Add `isArray` function to determine whether the input is an array of a specific type
+  - Add `isUndefined` function to check if a value is undefined
+  - Add `isDate` function to determine whether the input is a Date object
+  - Add `isRegExp` function to check if the input is a regular expression
+  - Add `isNull` function to check if input is null
+  - Add `isString` function to check if the given input is a string
+  - Add `isNumber` function to check if the input is a number
+  - Add `typeof` module to determine the type of an input value
+
+  These utility functions are added to improve the type checking capabilities of the codebase.
+
+### Minor Changes
+
+- f04bf5e: feat(types): add isFunction utility function to check if a value is a function
+- f04bf5e: feat(is-object.ts): add isObject function to check whether the input is an object
+- f04bf5e: feat(is-class): add isClass function to check if the input is a class
+- f04bf5e: feat(types): add type definitions for various type checks
+- f04bf5e: feat(types): add function `isError` to check if the input is an error
+- f04bf5e: feat(types): add isBuffer function to check if the input is a Buffer
+- f04bf5e: feat(types): add isArray function to determine whether the input is an array of a specific type
+- f04bf5e: feat(types): add isUndefined function to check if a value is undefined
+- f04bf5e: feat(is-date.ts): add `isDate` function to determine whether the input is a Date object
+- f04bf5e: feat(types): add new type files for various data types
+- f04bf5e: feat(types): add isInteger function to check if a number is an integer
+- f04bf5e: feat(is-regexp): add `isRegExp` function to check if the input is a regular expression
+- f04bf5e: feat(types): add isNull function to check if input is null
+- f04bf5e: feat(is-string.ts): add isString function to check if the given input is a string
+- f04bf5e: feat(is-number.ts): add isNumber function to check if the input is a number
+- f04bf5e: feat(typeof.ts): add typeof module to determine the type of an input value
+
 ## 2.0.1
 
 ### Patch Changes
