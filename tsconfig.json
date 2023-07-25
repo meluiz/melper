@@ -3,6 +3,7 @@
     "strict": true,
     "noEmit": true,
     "allowJs": true,
+    "type": "es2020",
     "jsx": "preserve",
     "lib": ["ESNext"],
     "module": "esnext",
