@@ -1,5 +1,11 @@
 # melper
 
+## 3.1.3
+
+### Patch Changes
+
+- 1db6a3e: chore(package.json): rearrange exports in package.json to improve readability and consistency
+
 ## 3.1.2
 
 ### Patch Changes
