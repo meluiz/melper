@@ -19,10 +19,10 @@
     "package.json"
   ],
   "exports": {
+    "import": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
-    "default": "./dist/index.mjs",
     "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
+    "default": "./dist/index.mjs"
   },
   "keywords": [],
   "tags": [],
