@@ -1,5 +1,11 @@
 # melper
 
+## 3.1.4
+
+### Patch Changes
+
+- dbfffc0: chore(tsconfig.json): add "type" field with value "es2020" ts specify the ECMAScript version used in the project.
+
 ## 3.1.3
 
 ### Patch Changes
