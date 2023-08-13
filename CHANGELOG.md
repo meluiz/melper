@@ -1,5 +1,11 @@
 # melper
 
+## 3.1.5
+
+### Patch Changes
+
+- 636f5a3: refactor(pluralize.ts): change import style from named import to namespace import for 'pluralize' library to ensure all functions are available for use
+
 ## 3.1.4
 
 ### Patch Changes
