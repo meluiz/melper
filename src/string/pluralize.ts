@@ -1,4 +1,4 @@
-import { plural } from 'pluralize'
+import * as Pluralize from 'pluralize'
 
 /**
  * Pluralizes a word.
@@ -7,5 +7,5 @@ import { plural } from 'pluralize'
  * @return {string} The plural form of the word.
  */
 export function pluralize(input: string) {
-  return plural(input)
+  return Pluralize.plural(input)
 }
