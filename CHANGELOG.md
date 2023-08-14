@@ -1,5 +1,11 @@
 # melper
 
+## 3.1.6
+
+### Patch Changes
+
+- ac7c90a: refactor(singularize.ts): import entire 'pluralize' module as Singularize for better code readability and potential future use of other module functions
+
 ## 3.1.5
 
 ### Patch Changes
