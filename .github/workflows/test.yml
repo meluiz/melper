@@ -1,0 +1,41 @@
+name: ⚡ Test
+
+on:
+  - push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇  Checkout
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: 🧩 Install Dependencies
+        run: bun install
+
+      - name: 🧹 Run lint
+        run: bun run lint
+
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version:
+          - 20.10.0
+          - 21.x
+    steps:
+      - name: ⬇ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: 🧩 Install dependencies
+        run: bun install
+
+      - name: ⚡ Run tests
+        run: bun test

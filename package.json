@@ -1,0 +1,68 @@
+{
+  "name": "melper",
+  "description": "Explore a versatile assortment of helper utility functions",
+  "type": "module",
+  "version": "0.0.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "author": {
+    "name": "meluiz",
+    "email": "me@meluiz.com",
+    "url": "https://meluiz.com"
+  },
+  "main": "./dist/index.js",
+  "source": "./src/index.ts",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "package.json"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/allayjs/logger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allayjs/logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/allayjs/logger/issues"
+  },
+  "packageManager": "bun@1.1.5",
+  "keywords": [
+    "melper",
+    "melperjs",
+    "melperts",
+    "melper.ts",
+    "melper.js",
+    "melper-ts",
+    "melper-js",
+    "toolkit",
+    "helper"
+  ],
+  "scripts": {
+    "clean": "del-cli dist",
+    "test": "bun run test",
+    "test:coverage": "bun test --coverage",
+    "build": "bun run bunrc.ts",
+    "lint": "biome lint --apply .",
+    "release": "changeset",
+    "version": "changeset version",
+    "publish": "changeset publish",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "lefthook install",
+    "postpublish": "bun run clean",
+    "prepublishOnly": "bun run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.6.3",
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.1",
+    "@types/bun": "latest",
+    "bun-plugin-dts": "^0.2.1",
+    "del-cli": "^5.1.0",
+    "lefthook": "1.6.8",
+    "typescript": "5.4.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

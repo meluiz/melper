@@ -1,0 +1,14 @@
+node_modules
+coverage
+.idea
+.DS_STORE
+.nyc_output
+*.sublime-project
+*.sublime-workspace
+*.log
+build
+dist
+yarn.lock
+shrinkwrap.yaml
+package-lock.json
+pnpm-lock.json
