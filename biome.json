@@ -3,6 +3,9 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "ignore": ["coverage", "**/*.{spec,test}.ts"]
+  },
   "javascript": {
     "formatter": {
       "enabled": true,
@@ -25,7 +28,14 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "complexity": {
+        "useArrowFunction": "off"
+      },
+      "style": {
+        "noArguments": "off"
+      },
       "suspicious": {
+        "useIsArray": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off"
       }
