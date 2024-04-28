@@ -1,0 +1,37 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Melper",
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#E64566",
+    "light": "#f07183",
+    "dark": "#E64566",
+    "anchors": {
+      "from": "#E64566",
+      "to": "#f07183"
+    },
+    "background": {
+      "dark": "#121113"
+    }
+  },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  },
+  "topbarCtaButton": {
+    "type": "github",
+    "url": "https://github.com/meluiz/melper"
+  },
+  "primaryTab": {
+    "name": "Home"
+  },
+  "navigation": [
+    {
+      "group": "Github",
+      "pages": ["introduction"]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/meluiz/melper"
+  }
+}
