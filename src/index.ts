@@ -1,1 +1,1 @@
-console.log("Hello from melper! :D");
+export * from './modules/type'
