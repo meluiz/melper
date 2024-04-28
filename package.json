@@ -40,8 +40,10 @@
   ],
   "scripts": {
     "clean": "del-cli dist",
-    "test": "bun run test",
-    "test:coverage": "bun test --coverage",
+    "test": "bun vitest",
+    "test:ui": "bun vitest --ui",
+    "test:coverage": "bun vitest --coverage",
+    "test:coverage:ui": "bun vitest --coverage --ui",
     "build": "bun run bunrc.ts",
     "lint": "biome lint --apply .",
     "release": "changeset",
@@ -57,10 +59,14 @@
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.1",
     "@types/bun": "latest",
+    "@vitest/coverage-v8": "1.5.2",
+    "@vitest/ui": "1.5.2",
     "bun-plugin-dts": "^0.2.1",
     "del-cli": "^5.1.0",
     "lefthook": "1.6.8",
-    "typescript": "5.4.3"
+    "typescript": "5.4.3",
+    "vite-tsconfig-paths": "4.3.2",
+    "vitest": "1.5.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

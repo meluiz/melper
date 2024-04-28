@@ -14,7 +14,11 @@
     "allowImportingTsExtensions": true,
     "noFallthroughCasesInSwitch": true,
     "noPropertyAccessFromIndexSignature": false,
-    "lib": ["ESNext"]
+    "lib": ["ESNext"],
+    "baseUrl": ".",
+    "paths": {
+      "#modules/*": ["./src/modules/*"]
+    }
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
