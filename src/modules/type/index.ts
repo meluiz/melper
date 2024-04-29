@@ -5,8 +5,9 @@
 
 import { lookup } from './lookup'
 
-export type * from './lookup'
+const object = {}
+export const type = Object.assign(object, {
+  lookup,
+})
 
-export const type = {
-  typeof: lookup,
-}
+export type * from './lookup'

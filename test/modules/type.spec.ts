@@ -58,14 +58,14 @@ describe('Typeof - Basic and Instance Type Checks', () => {
 
   for (const { type: typ, expected } of basicCases) {
     it(`Should return "${expected}" if input is a ${expected}`, () => {
-      const isBasic = type.typeof(typ)
+      const isBasic = type.lookup(typ)
       // @ts-ignore
       expect(isBasic).toBe(expected)
     })
   }
 
   it('Should return "arguments" if input is an "arguments" object', function () {
-    const isArgument = type.typeof(arguments)
+    const isArgument = type.lookup(arguments)
     expect(isArgument).toBe('arguments')
   })
 
@@ -76,7 +76,7 @@ describe('Typeof - Basic and Instance Type Checks', () => {
       return: () => {},
     }
 
-    const result = type.typeof(generatorLikeObject)
+    const result = type.lookup(generatorLikeObject)
     expect(result).toBe('generatorobject')
   })
 
@@ -84,7 +84,7 @@ describe('Typeof - Basic and Instance Type Checks', () => {
     const originalToString = Object.prototype.toString
     Object.prototype.toString = () => '[object Unrecognized]'
 
-    expect(type.typeof({})).toBe('unknown')
+    expect(type.lookup({})).toBe('unknown')
 
     Object.prototype.toString = originalToString
   })
@@ -111,7 +111,7 @@ describe('Typeof - Complex Type Mapping', () => {
 
   for (const { type: typ, expected } of complexCases) {
     it(`Should return "${expected}" if input is a ${expected}`, () => {
-      const isComplex = type.typeof(typ)
+      const isComplex = type.lookup(typ)
       // @ts-ignore
       expect(isComplex).toBe(expected)
     })
@@ -129,7 +129,7 @@ describe('Typeof - Non-Plain Object Type Mapping', () => {
 
   for (const { type: typ, expected } of nonPlainObjectType) {
     it(`Should return "${expected}" if input is a ${expected}`, () => {
-      const isComplex = type.typeof(typ)
+      const isComplex = type.lookup(typ)
       // @ts-ignore
       expect(isComplex).toBe(expected)
     })
