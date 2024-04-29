@@ -57,6 +57,13 @@ export type Lookup =
 
 export type LookupHandler = (input: unknown) => Lookup
 
+/**
+ * Check the type of a variable accurately.
+ *
+ * @example
+ * type.lookup('string') // 'string'
+ * type.lookup(123) // 'number'
+ */
 export const lookup: LookupHandler = (input) => {
   if (input === undefined) {
     return 'undefined'
