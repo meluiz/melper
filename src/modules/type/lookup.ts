@@ -6,13 +6,13 @@
 import checkClass from './utils/check-class'
 import getConstructorName from './utils/get-constructor-name'
 
-export type DefaultTypeof = 'undefined' | 'null' | 'boolean' | 'string' | 'number' | 'bigint' | 'symbol'
+export type DefaultType = 'undefined' | 'null' | 'boolean' | 'string' | 'number' | 'bigint' | 'symbol'
 
-export type FunctionTypeof = 'function' | 'generatorfunction'
-export type ComplexTypeof = 'array' | 'arguments' | 'date' | 'error' | 'regexp'
-export type BufferTypeof = 'buffer'
+export type FunctionType = 'function' | 'generatorfunction'
+export type ComplexType = 'array' | 'arguments' | 'date' | 'error' | 'regexp'
+export type BufferType = 'buffer'
 
-export type ArrayTypeof =
+export type ArrayType =
   | 'array'
   | 'int8array'
   | 'uint8array'
@@ -23,7 +23,8 @@ export type ArrayTypeof =
   | 'uint32array'
   | 'float32array'
   | 'float64array'
-export type SpecialObjectTypeof =
+
+export type SpecialObjectType =
   | 'generatorobject'
   | 'object'
   | 'mapiterator'
@@ -34,7 +35,7 @@ export type SpecialObjectTypeof =
   | 'regexp'
   | 'class'
 
-export type ConstructorObjectTypeof =
+export type ConstructorObjectType =
   | 'symbol'
   | 'promise'
   | 'map'
@@ -44,19 +45,19 @@ export type ConstructorObjectTypeof =
   | 'date'
   | 'arguments'
 
-export type Typeof =
-  | DefaultTypeof
-  | FunctionTypeof
-  | ComplexTypeof
-  | BufferTypeof
-  | ArrayTypeof
-  | SpecialObjectTypeof
-  | ConstructorObjectTypeof
+export type Lookup =
+  | DefaultType
+  | FunctionType
+  | ComplexType
+  | BufferType
+  | ArrayType
+  | SpecialObjectType
+  | ConstructorObjectType
   | 'unknown'
 
-export type TypeofHandler = (input: unknown) => Typeof
+export type LookupHandler = (input: unknown) => Lookup
 
-export const typof: TypeofHandler = (input) => {
+export const lookup: LookupHandler = (input) => {
   if (input === undefined) {
     return 'undefined'
   }
@@ -103,7 +104,7 @@ export const typof: TypeofHandler = (input) => {
   }
 
   const constructorName = getConstructorName(input)
-  const complexTypeMap: Record<string, Typeof> = {
+  const complexTypeMap: Record<string, Lookup> = {
     Symbol: 'symbol',
     Promise: 'promise',
     WeakMap: 'weakmap',
@@ -135,7 +136,7 @@ export const typof: TypeofHandler = (input) => {
   }
 
   const nonPlainObjectType = Object.prototype.toString.call(input)
-  const objectTypeMap: Record<string, Typeof> = {
+  const objectTypeMap: Record<string, Lookup> = {
     '[object Object]': 'object',
     '[object Map Iterator]': 'mapiterator',
     '[object Set Iterator]': 'setiterator',

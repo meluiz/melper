@@ -3,10 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-import { typof } from './typeof'
+import { lookup } from './lookup'
 
-export type * from './typeof'
+export type * from './lookup'
 
 export const type = {
-  typeof: typof,
+  typeof: lookup,
 }
