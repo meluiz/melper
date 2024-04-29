@@ -1,7 +1,8 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Melper",
-  "favicon": "/favicon.svg",
+  "logo": "/public/logo.png",
+  "favicon": "/favicon.png",
   "colors": {
     "primary": "#E64566",
     "light": "#f07183",
@@ -22,13 +23,25 @@
     "type": "github",
     "url": "https://github.com/meluiz/melper"
   },
-  "primaryTab": {
-    "name": "Home"
-  },
+  "anchors": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "color": "#E64566",
+      "url": "https://github.com/meluiz/melper"
+    }
+  ],
   "navigation": [
     {
-      "group": "Github",
-      "pages": ["introduction"]
+      "group": "Overview",
+      "pages": ["docs/introduction", "docs/changelog", "docs/roadmap"]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "docs/getting-started/installation",
+        "docs/getting-started/usage"
+      ]
     }
   ],
   "footerSocials": {
