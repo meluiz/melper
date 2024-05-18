@@ -10,7 +10,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "allayjs/logger"
+      "repo": "meluiz/melper"
     }
   ]
 }
