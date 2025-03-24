@@ -1,0 +1,68 @@
+{
+  "name": "melper",
+  "description": "Explore a versatile assortment of helper utility functions",
+  "type": "module",
+  "version": "0.0.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "author": {
+    "name": "meluiz",
+    "email": "me@meluiz.com",
+    "url": "https://meluiz.com"
+  },
+  "main": "./dist/index.js",
+  "source": "./src/index.ts",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "package.json"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/meluiz/melper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meluiz/melper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meluiz/melper/issues"
+  },
+  "packageManager": "bun@1.2.5",
+  "keywords": [
+    "melper",
+    "melperjs",
+    "melperts",
+    "melper.ts",
+    "melper.js",
+    "melper-ts",
+    "melper-js",
+    "toolkit",
+    "helper"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "bun test",
+    "test:coverage": "bun vitest --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome lint --write",
+    "check": "biome check --write",
+    "format": "biome format --write"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/changelog-github": "0.5.1",
+    "@changesets/cli": "2.28.1",
+    "tsup": "8.4.0"
+  }
+}
