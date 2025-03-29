@@ -57,12 +57,23 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
+    },
+    "./number": {
+      "import": {
+        "types": "./dist/number.d.ts",
+        "default": "./dist/number.js"
+      },
+      "require": {
+        "types": "./dist/number.d.cts",
+        "default": "./dist/number.cjs"
+      }
     }
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@changesets/changelog-github": "0.5.1",
     "@changesets/cli": "2.28.1",
-    "tsup": "8.4.0"
+    "tsup": "8.4.0",
+    "typescript": "5.8.2"
   }
 }
