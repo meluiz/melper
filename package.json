@@ -60,6 +60,16 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./guard": {
+      "import": {
+        "types": "./dist/guard.d.ts",
+        "default": "./dist/guard.js"
+      },
+      "require": {
+        "types": "./dist/guard.d.cts",
+        "default": "./dist/guard.cjs"
+      }
+    },
     "./number": {
       "import": {
         "types": "./dist/number.d.ts",
