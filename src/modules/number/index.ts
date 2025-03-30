@@ -8,3 +8,5 @@ export default {
   clamp,
   interpolate,
 }
+
+export { clamp, interpolate }

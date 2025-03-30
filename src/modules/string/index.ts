@@ -9,3 +9,5 @@ export default {
   interpolate,
   slug,
 }
+
+export { capitalize, interpolate, slug }
