@@ -67,6 +67,16 @@
         "types": "./dist/number.d.cts",
         "default": "./dist/number.cjs"
       }
+    },
+    "./string": {
+      "import": {
+        "types": "./dist/string.d.ts",
+        "default": "./dist/string.js"
+      },
+      "require": {
+        "types": "./dist/string.d.cts",
+        "default": "./dist/string.cjs"
+      }
     }
   },
   "devDependencies": {
