@@ -1,3 +1,10 @@
+/**
+ * Functions is a copy/paste with adapting from `Slugify`.
+ *
+ * @credits
+ * - https://github.com/simov/slugify
+ */
+
 interface SlugifyMapping {
   charset: Charset
   locales: Locales

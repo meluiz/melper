@@ -58,21 +58,22 @@ export type Lookup =
   | 'unknown'
 
 /**
- * Determines the type of the provided input.
+ * Determines the type of the provided input value.
  *
- * @param input - The value to check.
- *
- * @returns A string literal representing the type of the input.
+ * @param input - The value to inspect.
+ * @returns A string literal of type `Lookup` representing the detected type.
  *
  * @signature
- *    guard.lookup(input: unknown) => Lookup
+ *    guard.lookup(input)
  * @example
- *    lookup(123) // => "number"
- *    lookup([])  // => "array"
+ *    lookup(123)          // => "number"
+ *    lookup(null)         // => "null"
+ *    lookup([])           // => "array"
+ *    lookup(function*(){}) // => "generatorfunction"
  *
  * @category Guard
  */
-export const lookup = (input: unknown) => {
+export const lookup = (input: unknown): Lookup => {
   if (input === undefined) {
     return 'undefined'
   }
@@ -84,7 +85,7 @@ export const lookup = (input: unknown) => {
   const typeOf = typeof input
 
   if (['boolean', 'string', 'number', 'symbol', 'bigint'].includes(typeOf)) {
-    return typeOf
+    return typeOf as DefaultType
   }
 
   if (typeOf === 'function') {
