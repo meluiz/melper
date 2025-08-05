@@ -6,15 +6,14 @@
  * - https://github.com/mesqueeb/case-anything/
  */
 
-import { shouldCapitalize } from './utils/guard'
+import { shouldCapitalize } from './utils/guards'
 import {
   getCapitalizedToken,
   getCapitalizedWord,
   getNoCaseString,
   getNormalizedWords,
-  MAGIC_SPLIT_REGEX,
-  TOKENS_REGEX,
-} from './utils/words'
+} from './utils/helpers'
+import { MAGIC_SPLIT_REGEX, TOKENS_REGEX } from './utils/patterns'
 
 export interface CaseOptions {
   /**
@@ -24,9 +23,9 @@ export interface CaseOptions {
   keep?: string[] | undefined
 
   /**
-    * When `true`, strips out all characters not explicitly listed in `keep` or matched by the target case rules.
-    * Defaults to `true`, enforcing strict removal of non‑listed characters.
-    */
+   * When `true`, strips out all characters not explicitly listed in `keep` or matched by the target case rules.
+   * Defaults to `true`, enforcing strict removal of non‑listed characters.
+   */
   strict?: boolean | undefined
 }
 

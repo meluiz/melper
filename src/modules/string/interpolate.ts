@@ -1,4 +1,4 @@
-import { hasOwnProp } from './utils/guard'
+import { hasOwnProp } from './utils/guards'
 
 /**
  * Replaces placeholders in the form `{{key}}` in the input string with corresponding
