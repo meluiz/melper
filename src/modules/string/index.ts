@@ -1,6 +1,4 @@
 import { capitalize } from './capitalize'
-import { interpolate } from './interpolate'
-import { slug } from './slug'
 import {
   toAdaCase,
   toCamelCase,
@@ -20,13 +18,19 @@ import {
   toTrainCase,
   toUpperCase,
 } from './casing'
+import { interpolate } from './interpolate'
+import { random } from './random'
+import { sentence } from './sentence'
+import { slug } from './slug'
 
 export type { Slugify, SlugifyOptions } from './slug'
 export type { CaseOptions } from './casing'
+export type { SentenceOptions } from './sentence'
 
 export default {
   capitalize,
   interpolate,
+  sentence,
   slug,
   toAdaCase,
   toCamelCase,
@@ -45,11 +49,13 @@ export default {
   toTitleCase,
   toTrainCase,
   toUpperCase,
+  random,
 }
 
 export {
   capitalize,
   interpolate,
+  sentence,
   slug,
   toAdaCase,
   toCamelCase,
@@ -68,4 +74,5 @@ export {
   toTitleCase,
   toTrainCase,
   toUpperCase,
+  random,
 }
