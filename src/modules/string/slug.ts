@@ -904,7 +904,7 @@ const DEFAULT_MAPPING = {
  * @throws {TypeError} If the input is not a string.
  *
  * @signature
- *    slug(input, options)
+ *    string.slug(input, options)
  * @example
  *    slug("Hello, World!", { lower: true }) // => "hello-world"
  *
