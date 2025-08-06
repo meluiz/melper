@@ -3,7 +3,6 @@ export { getCapitalizedToken, getCapitalizedWord } from './capitalization'
 export { getNoCaseString } from './casing'
 
 export { DEFAULT_OPTIONS, SELF_CLOSING_TAGS } from './constants'
-./normalization
 export { getNormalizedWords } from './normalization'
 
 export {
