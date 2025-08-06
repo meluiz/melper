@@ -5,6 +5,8 @@
  * - https://github.com/simov/slugify
  */
 
+import { throwInvalidInput } from './utils/helpers'
+
 interface SlugifyMapping {
   charset: Charset
   locales: Locales
@@ -936,9 +938,7 @@ const slugify: SlugifyBuilder = (config = DEFAULT_OPTIONS) => {
   }
 
   const replace: Slugify = (input, options) => {
-    if (typeof input !== 'string') {
-      throw new TypeError('String argument expected')
-    }
+    throwInvalidInput(input)
 
     const {
       trim,
@@ -990,9 +990,7 @@ const slugify: SlugifyBuilder = (config = DEFAULT_OPTIONS) => {
  *
  * @param input - The string to be slugified.
  * @param options - Options to configure the slugification process.
- *
  * @returns The slugified version of the input string.
- *
  * @throws {TypeError} If the input is not a string.
  *
  * @signature

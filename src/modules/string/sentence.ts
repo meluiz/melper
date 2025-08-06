@@ -5,6 +5,8 @@
  * - https://github.com/poppinss/string
  */
 
+import { throwInvalidInput } from './utils/helpers'
+
 export interface SentenceOptions {
   /**
    * Separator used between items.
@@ -36,8 +38,8 @@ const DEFAULT_OPTIONS = {
  *   - `separator`: string used between items (default: ', ').
  *   - `pairSeparator`: string used between two items (default: ' and ').
  *   - `lastSeparator`: string used before the last item when more than two (default: ', and ').
- *
  * @returns A formatted sentence string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.sentence(["apple", "banana", "cherry"], { separator: ", ", lastSeparator: " & ", pairSeparator: " + " });

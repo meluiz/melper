@@ -1,4 +1,5 @@
 import { hasOwnProp } from './utils/guards'
+import { throwInvalidInput } from './utils/helpers'
 
 /**
  * Replaces placeholders in the form `{{key}}` in the input string with corresponding
@@ -11,6 +12,7 @@ import { hasOwnProp } from './utils/guards'
  * @param input - The string containing placeholders to be replaced.
  * @param data - The object that provides values for the placeholders.
  * @returns A new string with all matching placeholders replaced by their corresponding values.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.interpolate("hello {{ user.name }}", { user: { name: "John" }});
@@ -25,6 +27,8 @@ import { hasOwnProp } from './utils/guards'
  */
 
 export const interpolate = <T extends object>(input: string, data: T) => {
+  throwInvalidInput(input)
+
   return input.replace(/(\\)?{{(.*?)}}/g, (match, slash, key) => {
     if (slash) {
       return match.replace(slash, '')

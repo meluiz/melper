@@ -14,10 +14,10 @@
  * @category String
  */
 
+import { throwInvalidInput } from './utils/helpers'
+
 export const capitalize = <T extends string>(input: T): Capitalize<T> => {
-  if (typeof input !== 'string') {
-    throw new TypeError('Input must be a string.')
-  }
+  throwInvalidInput(input)
 
   return `${input.charAt(0)?.toUpperCase() ?? ''}${input.slice(1)}` as Capitalize<T>
 }

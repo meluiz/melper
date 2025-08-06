@@ -13,7 +13,7 @@ import {
   getNoCaseString,
   getNormalizedWords,
 } from './utils/helpers'
-import { MAGIC_SPLIT_REGEX, TOKENS_REGEX } from './utils/patterns'
+import { MAGIC_SPLIT_REGEX, TOKENS_REGEX } from './utils/regexes'
 
 export interface CaseOptions {
   /**
@@ -35,6 +35,7 @@ export interface CaseOptions {
  * @param input - The string to convert to camelCase.
  * @param options - Optional settings: `keep` for words to remain unchanged, `strict` for enforcing exact casing.
  * @returns The camelCase version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toCamelCase("hello world");
@@ -71,6 +72,7 @@ export const toCamelCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to PascalCase.
  * @param options - Optional settings for word handling.
  * @returns The PascalCase version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toPascalCase("hello world");
@@ -94,6 +96,7 @@ export const toPascalCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to kebab-case.
  * @param options - Optional settings for word handling.
  * @returns The kebab-case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toKebabCase("hello world");
@@ -115,6 +118,7 @@ export const toKebabCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to snake_case.
  * @param options - Optional settings for word handling.
  * @returns The snake_case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toSnakeCase("hello world");
@@ -136,6 +140,7 @@ export const toSnakeCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to space case.
  * @param options - Optional settings for word handling.
  * @returns The space-separated version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toSpaceCase("hello-world");
@@ -157,6 +162,7 @@ export const toSpaceCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to dot notation.
  * @param options - Optional settings for word handling.
  * @returns The dot.notation version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toDotNotationCase("hello world");
@@ -178,6 +184,7 @@ export const toDotNotationCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to CONSTANT_CASE.
  * @param options - Optional settings for word handling.
  * @returns The CONSTANT_CASE version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toConstantCase("hello world");
@@ -199,6 +206,7 @@ export const toConstantCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to Train-Case.
  * @param options - Optional settings for word handling.
  * @returns The Train-Case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toTrainCase("hello world");
@@ -220,6 +228,7 @@ export const toTrainCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to Ada_Case.
  * @param options - Optional settings for word handling.
  * @returns The Ada_Case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toAdaCase("hello world");
@@ -241,6 +250,7 @@ export const toAdaCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to COBOL-CASE.
  * @param options - Optional settings for word handling.
  * @returns The COBOL-CASE version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toCobolCase("hello world");
@@ -262,6 +272,7 @@ export const toCobolCase = (input: string, options?: CaseOptions) => {
  * @param input - The path or string to convert.
  * @param options - Optional settings for word handling.
  * @returns The path/case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toPathCase("hello world");
@@ -286,6 +297,7 @@ export const toPathCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to Capital Case.
  * @param options - Optional settings for word handling.
  * @returns The Capital Case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toCapitalCase("hello world");
@@ -309,6 +321,7 @@ export const toCapitalCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert to lower_case.
  * @param options - Optional settings for word handling.
  * @returns The lower_case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toLowerCaseCase("Hello World");
@@ -330,6 +343,7 @@ export const toLowerCaseCase = (input: string, options?: CaseOptions) => {
  * @param input - The string to convert.
  * @param options - Optional settings for word handling.
  * @returns The transformed string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toUpperCase("Hello World");
@@ -350,6 +364,7 @@ export const toUpperCase = (input: string, options?: CaseOptions) => {
  *
  * @param input - The string to convert to Title Case.
  * @returns The Title Case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toTitleCase("an example of title case");
@@ -379,6 +394,7 @@ export const toTitleCase = (input: string) => {
  *
  * @param input - The string to convert to Sentence case.
  * @returns The Sentence case version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toSentenceCase("HELLO WORLD. this is a test.");
@@ -408,6 +424,7 @@ export const toSentenceCase = (input: string) => {
  *
  * @param input - The string to convert.
  * @returns The no case (untransformed) version of the input string.
+ * @throws {TypeError} If the input value is not a string.
  *
  * @signature
  *    string.toNoCase("Hello-World_Test");
