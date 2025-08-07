@@ -17,6 +17,11 @@ export type {
 } from './number'
 
 export type {
+  CaseOptions,
+  ExcerptOptions,
+  PrettyDuration,
+  SentenceOptions,
+  TruncateOptions,
   Slugify,
   SlugifyOptions,
 } from './string'
