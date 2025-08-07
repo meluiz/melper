@@ -2,6 +2,7 @@ import { hasEmptySpace } from '../guards'
 import { DEFAULT_OPTIONS } from './constants'
 
 import { getWordSplitRegex, getWordsAndPrefixes } from './splitting'
+import { throwInvalidInput } from './validation'
 
 /**
  * Trims and normalizes a string to the given Unicode form.
@@ -48,9 +49,7 @@ export const getNormalizedWords = (
     options,
   )
 
-  if (typeof input !== 'string') {
-    throw new TypeError('Input must be a string.')
-  }
+  throwInvalidInput()
 
   const normal = getNormalizedText(input)
   const regex = getWordSplitRegex(normal)
