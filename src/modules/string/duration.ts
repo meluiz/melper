@@ -97,8 +97,6 @@ export const toMilliseconds = (input: string | number) => {
   return milliseconds
 }
 
-}
-
 /**
  * Converts a number of seconds into a human-readable duration string.
  *
