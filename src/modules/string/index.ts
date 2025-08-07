@@ -18,6 +18,12 @@ import {
   toTrainCase,
   toUpperCase,
 } from './casing'
+import {
+  fromMilliseconds,
+  fromSeconds,
+  toMilliseconds,
+  toSeconds,
+} from './duration'
 import { excerpt } from './excerpt'
 import { interpolate } from './interpolate'
 import { random } from './random'
@@ -30,10 +36,13 @@ export type { CaseOptions } from './casing'
 export type { SentenceOptions } from './sentence'
 export type { ExcerptOptions } from './excerpt'
 export type { TruncateOptions } from './truncate'
+export type { PrettyDuration } from './duration'
 
 export default {
   capitalize,
   excerpt,
+  fromMilliseconds,
+  fromSeconds,
   interpolate,
   random,
   sentence,
@@ -47,9 +56,11 @@ export default {
   toDotNotationCase,
   toKebabCase,
   toLowerCaseCase,
+  toMilliseconds,
   toNoCase,
   toPascalCase,
   toPathCase,
+  toSeconds,
   toSentenceCase,
   toSnakeCase,
   toSpaceCase,
@@ -61,6 +72,8 @@ export default {
 export {
   capitalize,
   excerpt,
+  fromMilliseconds,
+  fromSeconds,
   interpolate,
   random,
   sentence,
@@ -74,9 +87,11 @@ export {
   toDotNotationCase,
   toKebabCase,
   toLowerCaseCase,
+  toMilliseconds,
   toNoCase,
   toPascalCase,
   toPathCase,
+  toSeconds,
   toSentenceCase,
   toSnakeCase,
   toSpaceCase,
