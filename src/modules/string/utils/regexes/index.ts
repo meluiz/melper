@@ -20,3 +20,5 @@ export {
 } from './split'
 
 export { DOUBLE_LINE_BREAK_REGEX, SMALL_WORDS_REGEX } from './text'
+
+export { DURATION_WITH_UNIT_REGEX } from './unit'
