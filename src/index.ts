@@ -26,6 +26,6 @@ export type {
   SlugifyOptions,
 } from './string'
 
-export { default as number } from './number'
-export { default as string } from './string'
-export { default as guard } from './guard'
+export { number } from './number'
+export { string } from './string'
+export { guard } from './guard'

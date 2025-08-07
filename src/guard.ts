@@ -1,2 +1,2 @@
-export { default } from './modules/guard'
+export { default as guard } from './modules/guard'
 export type * from './modules/guard'
