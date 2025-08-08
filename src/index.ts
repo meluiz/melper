@@ -11,7 +11,6 @@ export type {
 } from './guard'
 
 export type {
-  Extrapolate,
   Limits,
   Ranges,
 } from './number'
@@ -26,6 +25,6 @@ export type {
   SlugifyOptions,
 } from './string'
 
-export { number } from './number'
+export { number, Extrapolate } from './number'
 export { string } from './string'
 export { guard } from './guard'
