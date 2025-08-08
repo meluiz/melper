@@ -965,7 +965,7 @@ const slugify: SlugifyBuilder = (config = DEFAULT_OPTIONS) => {
       slug = slug.trim()
     }
 
-    slug.replace(/\s+/g, separator)
+    slug = slug.replace(/\s+/g, separator)
 
     if (lower) {
       slug = slug.toLowerCase()
