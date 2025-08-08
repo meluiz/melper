@@ -1,3 +1,5 @@
+import { throwInvalidInput } from './utils/helpers'
+
 /**
  * Capitalizes the first letter of a given string.
  *
@@ -13,9 +15,6 @@
  *    capitalize("") // => ""
  * @category String
  */
-
-import { throwInvalidInput } from './utils/helpers'
-
 export const capitalize = <T extends string>(input: T): Capitalize<T> => {
   throwInvalidInput(input)
 
