@@ -21,7 +21,7 @@ import type { Limits } from './types'
 export const clamp = (value: number, limits: Limits): number => {
   const { min, max } = limits
 
-  if (min != null && max != null) {
+  if (min == null && max == null) {
     return value
   }
 
