@@ -49,7 +49,7 @@ export const getNormalizedWords = (
     options,
   )
 
-  throwInvalidInput()
+  throwInvalidInput(input)
 
   const normal = getNormalizedText(input)
   const regex = getWordSplitRegex(normal)
