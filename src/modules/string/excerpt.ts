@@ -2,7 +2,7 @@ import { getTruncatedString } from './utils/helpers'
 
 export interface ExcerptOptions {
   /**
-   * Whether to strictly truncate at the character limit (default: true).
+   * Whether to strictly truncate at the limit, allowing breaking words.
    */
   strict?: boolean
 
@@ -10,11 +10,17 @@ export interface ExcerptOptions {
    * String appended to the result if truncation occurs.
    */
   ellipsis?: string
+
+  /**
+   * When true, the `length` represents the number of words instead of characters.
+   */
+  words?: boolean
 }
 
 const DEFAULT_OPTIONS = {
-  strict: true,
+  strict: false,
   ellipsis: '...',
+  words: false,
 } as const
 
 /**
@@ -45,12 +51,12 @@ export const excerpt = (
   length: number,
   options?: ExcerptOptions,
 ) => {
-  const { strict, ellipsis } = Object.assign(DEFAULT_OPTIONS, options)
+  const { strict, ellipsis, words } = Object.assign(DEFAULT_OPTIONS, options)
 
   return getTruncatedString(input, length, {
     strict,
     ellipsis,
     tags: false,
-    type: 'characters',
+    type: words ? 'words' : 'characters',
   })
 }
