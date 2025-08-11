@@ -8,6 +8,7 @@ import {
   MAGIC_SPLIT_REGEX,
   SPACE_SPLIT_REGEX,
 } from '../regexes'
+import { HTML_TAG_NAME_REGEX } from '../regexes/html'
 import { DEFAULT_OPTIONS, SELF_CLOSING_TAGS } from './constants'
 import { throwInvalidInput } from './validation'
 
@@ -76,6 +77,10 @@ interface TruncatedStringOptions {
   ellipsis?: string
 }
 
+interface Stack {
+  tags: string[]
+}
+
 enum State {
   Text = 0,
   Tag = 1,
@@ -98,20 +103,11 @@ export const getTruncatedString = (
   )
 
   let sentence = input.trim()
-
-  input = input.trim()
-
   let result = ''
-  let next = ''
-
-  const state = {
-    isTagOpen: false,
-    isEndOfWord: false,
-  }
 
   const current = {
     tag: '',
-    state: State.Tag,
+    state: State.Text,
   }
 
   const counter = {
@@ -120,129 +116,114 @@ export const getTruncatedString = (
     character: 0,
   }
 
-  const stack = {
+  const stack: Stack = {
     tags: [],
-  } as {
-    tags: string[]
   }
 
-  if (sentence === '' || (tags && sentence.length <= length)) {
-    return sentence
-  }
+  let isTruncated = false
 
   if (!tags) {
-    sentence = sentence.replace(HTML_LINE_BREAK_REGEX, ' ')
-
-    if (!/(paragraph(s)?)/.test(type)) {
-      sentence = sentence
-        .replace(HTML_COMMENT_REGEX, '')
-        .replace(HTML_TAG_REGEX, '')
-    }
-
-    if (/\r?\n\r?\n/.test(sentence)) {
-      sentence = sentence.replace(DOUBLE_LINE_BREAK_REGEX, '<p>$2</p>')
-    }
+    sentence = sentence.replace(HTML_COMMENT_REGEX, '')
+    sentence = sentence.replace(HTML_TAG_REGEX, '')
   }
-
-  sentence = sentence.replace(HTML_NEWLINE_PARAGRAPHS_REGEX, '</p><p>')
 
   let index = 0
   while (index < sentence.length) {
     const char = sentence.charAt(index)
 
+    const isStateTag = current.state === State.Tag
+    const isStateText = current.state === State.Text
+    const isStateAttributes = current.state === State.Attributes
+
     switch (char) {
       case '<': {
-        if (current.state === State.Text) {
+        if (tags) {
           current.state = State.Tag
           current.tag = ''
-        }
 
-        if (!tags) {
           result += char
         }
         break
       }
       case '>': {
-        if (current.state === State.Tag || current.state === State.Attributes) {
-          current.state = State.Text
-          current.tag = current.tag.toLowerCase()
+        if (tags) {
+          if (isStateTag || isStateAttributes) {
+            current.state = State.Text
 
-          if (current.tag === '/p') {
-            counter.paragraph += 1
+            const raw = current.tag
+            const closing = raw.startsWith('/')
+            const name = raw.replace(/^\//, '').toLowerCase()
 
-            if (!tags) {
-              result += ' '
-            }
-          }
-
-          if (
-            SELF_CLOSING_TAGS.indexOf(current.tag) !== -1 &&
-            SELF_CLOSING_TAGS.indexOf(`${current.tag}/`) === -1
-          ) {
-            if (current.tag.indexOf('/') >= 0) {
+            if (!SELF_CLOSING_TAGS.includes(name) && !closing) {
+              stack.tags.push(name)
+            } else if (closing) {
               stack.tags.pop()
-            } else {
-              stack.tags.push(current.tag)
             }
           }
-        }
 
-        if (!tags) {
           result += char
         }
         break
       }
       case ' ': {
-        if (current.state === State.Tag) {
-          current.state = State.Attributes
+        if (isStateText) {
+          if (/word(s)?/i.test(type)) {
+            counter.word++
+
+            if (counter.word >= length) {
+              if (!strict) {
+                result = result.trimEnd()
+              }
+
+              isTruncated = true
+              index = sentence.length
+
+              break
+            }
+          }
+          counter.character++
+          if (/character(s)?/i.test(type) && counter.character >= length) {
+            isTruncated = true
+            index = sentence.length
+            break
+          }
         }
 
-        if (current.state === State.Text) {
-          counter.word += 1
-          counter.character += 1
-        }
-
-        if (current.state === State.Text || tags) {
-          result += char
-        }
+        result += char
         break
       }
       default: {
-        if (current.state === State.Text) {
-          counter.character += 1
+        if (isStateText) {
+          counter.character++
+
+          if (/character(s)?/i.test(type) && counter.character >= length) {
+            isTruncated = true
+            index = sentence.length
+            result += char
+            break
+          }
+        } else if (tags && current.state === State.Tag) {
+          if (char === ' ') {
+            current.state = State.Attributes
+          } else {
+            current.tag += char
+          }
         }
 
-        if (current.state === State.Tag) {
-          current.tag += char
-        }
-
-        if (current.state === State.Text || tags) {
-          result += char
-        }
+        result += char
         break
       }
     }
 
-    next = sentence[index + 1] ?? ''
-    state.isEndOfWord = strict
-      ? true
-      : !char.match(/[a-zA-ZÇ-Ü']/i) || !next.match(/[a-zA-ZÇ-Ü']/i)
+    if (isStateText && /paragraph(s)?/i.test(type) && char === '\n') {
+      counter.paragraph++
 
-    if (/word(s)?/i.test(type) && length <= counter.word) {
-      result = result.replace(/\s+$/, '')
-      break
-    }
+      if (counter.paragraph >= length) {
+        isTruncated = true
+        index = sentence.length
 
-    if (
-      /character(s)?/i.test(type) &&
-      length <= counter.character &&
-      state.isEndOfWord
-    ) {
-      break
-    }
-
-    if (/paragraph(s)?/i.test(type) && length === counter.paragraph) {
-      break
+        break
+      }
     }
 
     index++
@@ -252,17 +233,17 @@ export const getTruncatedString = (
     while (stack.tags.length > 0) {
       const tag = stack.tags.pop()
 
-      if (tag !== '!--') {
+      if (tag) {
         result += `</${tag}>`
       }
     }
   }
 
-  if (index < sentence.length - 1) {
-    if (result.match(/<\/p>$/gi)) {
-      result = result.replace(/(<\/p>)$/gi, `${ellipsis}$1`)
+  if (isTruncated) {
+    if (tags && HTML_TAG_NAME_REGEX.test(result)) {
+      result = result.replace(HTML_TAG_NAME_REGEX, `${ellipsis}</$1>`)
     } else {
-      result = `${result}${ellipsis}`
+      result += ellipsis
     }
   }
 
