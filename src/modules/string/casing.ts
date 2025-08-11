@@ -356,7 +356,7 @@ export const toLowerCaseCase = (input: string, options?: CaseOptions) => {
 export const toUpperCase = (input: string, options?: CaseOptions) => {
   const words = getNormalizedWords(input, { ...options, prefix: ' ' })
 
-  return words.join('').toLowerCase()
+  return words.join('').toUpperCase()
 }
 
 /**

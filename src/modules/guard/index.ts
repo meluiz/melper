@@ -1,4 +1,3 @@
-import { lookup } from './lookup'
 import {
   hasOwnProp,
   isArray,
@@ -13,6 +12,7 @@ import {
   isProd,
   isString,
 } from './is'
+import { lookup } from './lookup'
 
 export type * from './types'
 export type {
