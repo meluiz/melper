@@ -168,4 +168,130 @@ describe('string', () => {
       expect(() => string.toSeconds('abc')).toThrow(TypeError)
     })
   })
+
+  describe('excerpt', () => {
+    it('should truncate text and append ellipsis when length is exceeded', () => {
+      expect(string.excerpt('Lorem ipsum dolor sit amet', 11)).toBe(
+        'Lorem ipsum...',
+      )
+    })
+
+    it('should return original text when within limit', () => {
+      expect(string.excerpt('Short text', 20)).toBe('Short text')
+    })
+
+    it('should limit by words when words option is enabled', () => {
+      expect(
+        string.excerpt('This is a simple test sentence', 3, { words: true }),
+      ).toBe('This is a...')
+    })
+
+    it('throws an error when the input is not a string', () => {
+      // @ts-expect-error: Expected a string but got null
+      expect(() => string.excerpt(null, 10)).toThrow(Error)
+    })
+  })
+
+  describe('interpolate', () => {
+    it('should replace placeholders with corresponding values', () => {
+      expect(
+        string.interpolate('hello {{ user.name }}', { user: { name: 'John' } }),
+      ).toBe('hello John')
+    })
+
+    it('should keep escaped placeholders intact', () => {
+      expect(
+        string.interpolate(
+          'This is an escaped placeholder: \\{{ users.0 }}',
+          {},
+        ),
+      ).toBe('This is an escaped placeholder: {{ users.0 }}')
+    })
+
+    it('should replace missing keys with undefined', () => {
+      expect(string.interpolate('missing {{ foo }}', {})).toBe(
+        'missing undefined',
+      )
+    })
+
+    it('throws an error when the input is not a string', () => {
+      // @ts-expect-error: Expected a string but got null
+      expect(() => string.interpolate(null, {})).toThrow(Error)
+    })
+  })
+
+  describe('random', () => {
+    it('should generate a string of the requested length using allowed characters', () => {
+      const random = Math.random
+      Math.random = () => 0
+      expect(string.random(5)).toBe('aaaaa')
+      Math.random = random
+    })
+
+    it('should return an empty string when length is zero or negative', () => {
+      expect(string.random(0)).toBe('')
+      expect(string.random(-3)).toBe('')
+    })
+  })
+
+  describe('sentence', () => {
+    it('should format array into a human readable sentence', () => {
+      expect(string.sentence(['apple', 'banana', 'cherry'])).toBe(
+        'apple, banana, and cherry',
+      )
+    })
+
+    it('should use pair separator when exactly two items', () => {
+      expect(
+        string.sentence(['apple', 'banana'], { pairSeparator: ' & ' }),
+      ).toBe('apple & banana')
+    })
+
+    it('should return empty string for empty array', () => {
+      expect(string.sentence([])).toBe('')
+    })
+  })
+
+  describe('slug', () => {
+    it('should slugify text using default options', () => {
+      expect(string.slug('Hello, World!')).toBe('hello-world!')
+    })
+
+    it('should respect custom separator and casing options', () => {
+      expect(
+        string.slug('Hello, World!', { lower: false, separator: '_' }),
+      ).toBe('Hello_World!')
+    })
+
+    it('should remove unsupported characters in strict mode', () => {
+      expect(string.slug('foo@bar', { strict: true })).toBe('foobar')
+    })
+
+    it('should create a new slug function with custom defaults', () => {
+      const custom = string.slug.create({ lower: false })
+      expect(custom('Hello World')).toBe('Hello-World')
+    })
+
+    it('throws an error when the input is not a string', () => {
+      // @ts-expect-error: Expected a string but got null
+      expect(() => string.slug(null)).toThrow(Error)
+    })
+
+    it('should extend the character mapping', () => {
+      const custom = string.slug.create()
+      custom.extend({ '@': 'at' })
+      expect(custom('email@host')).toBe('emailathost')
+    })
+  })
+
+  describe('truncate', () => {
+    it('should truncate text to the specified length and append ellipsis', () => {
+      expect(string.truncate('Hello World', 5)).toBe('Hello...')
+    })
+
+    it('throws an error when the input is not a string', () => {
+      // @ts-expect-error: Expected a string but got null
+      expect(() => string.truncate(null, 5)).toThrow(Error)
+    })
+  })
 })
