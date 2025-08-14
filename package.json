@@ -2,7 +2,7 @@
   "name": "melper",
   "description": "Explore a versatile assortment of helper utility functions",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "sideEffects": false,
   "author": {

@@ -1,5 +1,11 @@
 # melper
 
+## 0.1.1
+
+### Patch Changes
+
+- Fixed the module export issue that prevented proper use of functions when importing at the module level
+
 ## 0.1.0
 
 ### Minor Changes
