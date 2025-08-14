@@ -1,2 +1,8 @@
-export { default as number, Extrapolate } from './modules/number'
-export type * from './modules/number'
+export type { Limits, Ranges, SafeNumber } from './modules/number'
+
+export {
+  default as number,
+  clamp,
+  interpolate,
+  Extrapolate,
+} from './modules/number'

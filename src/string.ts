@@ -1,2 +1,41 @@
-export { default as string } from './modules/string'
-export type * from './modules/string'
+export type {
+  CaseOptions,
+  ExcerptOptions,
+  PrettyDuration,
+  SentenceOptions,
+  Slugify,
+  SlugifyOptions,
+  TruncateOptions,
+} from './modules/string'
+
+export {
+  default as string,
+  capitalize,
+  excerpt,
+  fromMilliseconds,
+  fromSeconds,
+  interpolate,
+  random,
+  sentence,
+  slug,
+  truncate,
+  toAdaCase,
+  toCamelCase,
+  toCapitalCase,
+  toCobolCase,
+  toConstantCase,
+  toDotNotationCase,
+  toKebabCase,
+  toLowerCaseCase,
+  toMilliseconds,
+  toNoCase,
+  toPascalCase,
+  toPathCase,
+  toSeconds,
+  toSentenceCase,
+  toSnakeCase,
+  toSpaceCase,
+  toTitleCase,
+  toTrainCase,
+  toUpperCase,
+} from './modules/string'

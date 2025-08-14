@@ -13,6 +13,7 @@ export type {
 export type {
   Limits,
   Ranges,
+  SafeNumber,
 } from './number'
 
 export type {
@@ -25,6 +26,6 @@ export type {
   SlugifyOptions,
 } from './string'
 
-export { number, Extrapolate } from './number'
+export { number } from './number'
 export { string } from './string'
 export { guard } from './guard'

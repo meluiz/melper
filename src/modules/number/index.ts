@@ -1,12 +1,11 @@
 import { clamp } from './clamp'
-import { interpolate } from './interpolate'
+import { Extrapolate, interpolate } from './interpolate'
 
-export type * from './types'
-export { Extrapolate } from './interpolate'
+export type { Limits, Ranges, SafeNumber } from './types'
 
+export { clamp, interpolate, Extrapolate }
 export default {
   clamp,
   interpolate,
+  Extrapolate,
 }
-
-export { clamp, interpolate }

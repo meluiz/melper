@@ -1,3 +1,15 @@
+export type { Callable } from './types'
+export type {
+  ArrayType,
+  BufferType,
+  ComplexType,
+  ConstructorObjectType,
+  DefaultType,
+  FunctionType,
+  Lookup,
+  SpecialObjectType,
+} from './lookup'
+
 import {
   hasOwnProp,
   isArray,
@@ -14,19 +26,7 @@ import {
 } from './is'
 import { lookup } from './lookup'
 
-export type * from './types'
-export type {
-  ArrayType,
-  BufferType,
-  ComplexType,
-  ConstructorObjectType,
-  DefaultType,
-  FunctionType,
-  Lookup,
-  SpecialObjectType,
-} from './lookup'
-
-export default {
+export {
   lookup,
   hasOwnProp,
   isArray,
@@ -42,7 +42,7 @@ export default {
   isString,
 }
 
-export {
+export default {
   lookup,
   hasOwnProp,
   isArray,
