@@ -55,44 +55,24 @@
   },
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./guard": {
-      "import": {
-        "types": "./dist/guard.d.ts",
-        "default": "./dist/guard.js"
-      },
-      "require": {
-        "types": "./dist/guard.d.cts",
-        "default": "./dist/guard.cjs"
-      }
+      "types": "./dist/guard.d.ts",
+      "import": "./dist/guard.js",
+      "require": "./dist/guard.cjs"
     },
     "./number": {
-      "import": {
-        "types": "./dist/number.d.ts",
-        "default": "./dist/number.js"
-      },
-      "require": {
-        "types": "./dist/number.d.cts",
-        "default": "./dist/number.cjs"
-      }
+      "types": "./dist/number.d.ts",
+      "import": "./dist/number.js",
+      "require": "./dist/number.cjs"
     },
     "./string": {
-      "import": {
-        "types": "./dist/string.d.ts",
-        "default": "./dist/string.js"
-      },
-      "require": {
-        "types": "./dist/string.d.cts",
-        "default": "./dist/string.cjs"
-      }
+      "types": "./dist/string.d.ts",
+      "import": "./dist/string.js",
+      "require": "./dist/string.cjs"
     }
   },
   "devDependencies": {

@@ -5,6 +5,7 @@ export default defineConfig({
   minify: true,
   outDir: 'dist',
   sourcemap: false,
+  treeshake: true,
   format: ['cjs', 'esm'],
   entry: [
     './src/index.ts',
